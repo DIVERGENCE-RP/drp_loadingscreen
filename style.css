@@ -1,0 +1,108 @@
+/* Document Prep */
+* { margin: auto; }
+html, body {
+  background: #31001d; /* Failback BG in case JS doesn't work or no background is used */
+  height: 100%;
+}
+body {
+  opacity: 0;
+  transition: all 500ms ease;
+  color: white;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+
+#app {
+  width: 100%;
+  height: 100%;
+}
+#centre { 
+  margin: auto;
+  text-align: center; /* Centres the image */
+}
+#bg {
+  z-index: 1; /* Z-index is used for bg overlay */
+  height: 100%;
+}
+#bg > img,
+#bg > video {
+  width: 100%;
+  height: 100%;
+  display: none;
+  z-index: 1;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#player,
+#playeri { display: none; } /* Hides the YT and SC players */
+
+/* Meta contents on page */
+.server-logo { border: none; }
+.header { font-size: 2.5em; } /* header */
+.sub {
+  color: #d4d4d4;
+	font-size: 1.5em;
+} /* subheader */
+.subsub { font-size: 1em; } /* subheader for the subheader */
+#mute { display: none; }
+.dark-text { color: #3b3b3b; }
+.header, .sub { text-align: center; } /* centres text */
+span { color: #f62c43; }
+
+/* Footer */
+#footer {
+  flex-shrink: 0;
+  height: 5vh; /* Keeps size not too big, not too small */
+  width: 80%;
+  z-index: 2;
+  margin-top: 20vh;
+  margin-bottom: 5vh;
+}
+
+.footer-text { font-size: .90em; }
+
+/* Floats for footer */
+.l { float: left; }
+.r { float: right; }
+
+
+/* Animated BG logic */
+.animated {
+  background: linear-gradient(270deg, #ffadad, #ffd6a5, #fdffb6, #caffbf, #9bf6ff, #a0c4ff, #bdb2ff, #ffc6ff);
+  background-size: 400% 400%;
+  animation: animatedBG 4s ease infinite;
+
+  color: #000;
+  transition: all 500ms ease;
+}
+
+/* Animation for rainbow wave */
+@keyframes animatedBG {
+    0%{background-position:0% 100%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+/* Carousel BG */
+.carousel {
+  padding-top: 1vh;
+  margin-top: -170px;
+  z-index: 5; /* Used in the future for BGs */
+  background: #00000075;
+}
+.carousel > #footer { margin-top: 1vh; margin-bottom: 0; }
+
+/* Animations for carousel */
+.fade-in { animation: fadeIn ease 1000ms; }
+.fade-out { animation: fadeOut ease 1000ms; }
+@keyframes fadeIn {
+  0% { opacity: 0 }
+  100% { opacity: 1 }
+}
+@keyframes fadeOut {
+  0% { opacity: 1 }
+  100% { opacity: 0 }
+}
